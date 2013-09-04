@@ -71,3 +71,13 @@ post '/comment/:post_id' do
 
   redirect to "/post/#{post_id}"
 end
+
+post '/postvote/new' do
+  post_id = params[:post_id].to_i
+  p post_id
+  Postvote.create(:post_id => post_id,:user_id => current_user.id)
+end
+
+post '/commentvote/new' do
+
+end

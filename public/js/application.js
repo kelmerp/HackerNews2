@@ -4,4 +4,17 @@ $(document).ready(function() {
   // when we try to bind to them
 
   // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+
+  $('a.like').on('click',function(event){
+    event.preventDefault();
+    //Browser...Don't go to this link, I got it.
+    data = {post_id : $(this).attr("value")};
+    var yo = $(this);
+    console.log(data);
+    $.post("/postvote/new", data, function(){
+      yo.hide();
+    });  
+  });
 });
+
+
