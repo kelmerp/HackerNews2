@@ -15,6 +15,18 @@ $(document).ready(function() {
       yo.hide();
     });  
   });
+
+  $('a.comment_like').on('click',function(event){
+    event.preventDefault();
+    //Browser...Don't go to this link, I got it.
+    data = {comment_id : $(this).attr("value")};
+    var ya = $(this);
+    console.log(data);
+    $.post("/commentvote/new", data, function(){
+      ya.hide();
+    });  
+  });
+
 });
 
 
